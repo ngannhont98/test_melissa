@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @var \SM\Melissa_Newsletter\Block\Subscribe $block
+ * @see \SM\Melissa_Newsletter\Block\Subscribe
+ */
+?>
+<style>
+    .popup-newsletter .block.newsletter {
+        width: 100%;
+        background: #e4e486;
+        margin: 3px;
+    }
+    .newsletter-content {
+        display: none;
+    }
+    .newsletter-content .messages {
+        display: none;
+    }
+    .newsletter-content h1 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: initial;
+        text-align: center;
+    }
+    .newsletter-content h2 {
+        font-size: 11px;
+        font-weight: 700;
+        line-height: initial;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .newsletter-content.block.newsletter .actions {
+        display: block;
+        margin-top: 5px;
+        width: 100%;
+
+    }
+    .newsletter-content .actions .action.subscribe.primary {
+        width: 100%;
+        display: block;
+        background: #0a0a0a;
+
+    }
+    .no-thanks
+    {
+        display: block;
+        margin-top: 5px;
+        width: 100%;
+    }
+</style>
+<div class="block newsletter newsletter-content" id="popup-newsletter">
+    <div class="messages">
+        <div class="message message-error error">
+            <div></div>
+        </div>
+    </div>
+    <div class="intro">
+        <h1><?php echo __('join the melissa family and take'); ?></h1>
+        <h1 style="color: red"><?php echo __('10% off'); ?></h1>
+        <h2><?php /* @escapeNotVerified */ echo __('Sign up for our mailing list to be the first to know about our exclusive deals & sneak peeks!'); ?></h2>
+    </div>
+    <div class="content">
+        <form class="form subscribe"
+              novalidate
+              action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl(); ?>"
+              method="post"
+              data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+              id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <label class="label" for="newsletter"><span><?php /* @escapeNotVerified */ echo __('Sign Up'); ?></span></label>
+                <div class="control">
+                    <input name="email" type="email" id="newsletter"
+                           placeholder="<?php /* @escapeNotVerified */ echo __('YOUR EMAIL ADDRESS HERE'); ?>"
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Submit'); ?>" type="submit">
+                    <span><?php /* @escapeNotVerified */ echo __('Submit'); ?></span>
+                </button>
+            </div>
+            <div>
+                <button id="no-thanks" class="no-thanks" title="<?php /* @escapeNotVerified */ echo __('NO THANKS JUST LET ME SHOP!'); ?>">
+                    <span><?php /* @escapeNotVerified */ echo __('NO THANKS JUST LET ME SHOP!'); ?></span>
+                </button>
+            </div>
+            <div>
+                <h2><?php /* @escapeNotVerified */ echo __('10% discount is valid on regular priced items only.'); ?></h2>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#popup-newsletter": {
+            "SM_Melissa_Newsletter/js/process-popup-newsletter": {
+                "popupTitle": "<?php /* @escapeNotVerified */ echo __(''); ?>"
+            }
+        }
+    }
+</script>

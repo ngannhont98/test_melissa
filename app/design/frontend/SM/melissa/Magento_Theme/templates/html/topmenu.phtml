@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+<nav class="navigation" data-action="navigation" id="sticky-header">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?= /* @escapeNotVerified */ $_menu ?>
+        <?= /* @escapeNotVerified */ $block->getChildHtml() ?>
+    </ul>
+</nav>
+<script>
+    require([
+        'jquery',
+    ], function ($) {
+        $(document).ready(function () {
+            window.onscroll = function() {myFunction()};
+
+            var header = document.getElementById("sticky-header");
+            var sticky = header.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
+            }
+        });
+    });
+</script>
+<style>
+    .sticky{
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 100%
+    }
+
+    @media (min-width: 768px), print{
+        .navigation ul {
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10em!important;
+        }
+    }
+</style>

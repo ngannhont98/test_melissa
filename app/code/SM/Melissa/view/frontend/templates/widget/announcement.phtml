@@ -1,0 +1,13 @@
+<style>
+    .widget_image{
+        width: 33%;
+        height: 200px;
+    }
+</style>
+
+<!--<p>--><?php //echo $block->getData('text_image')?><!--</p>-->
+<tr>
+    <td><img class="widget_image" src="<?= $block->getData('widget_image_left')?>"/></td>
+    <td><img class="widget_image" src="<?= $block->getData('widget_image_center')?>"/></td>
+    <td><img class="widget_image" src="<?= $block->getData('widget_image_right')?>"/></td>
+</tr>

@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="SM\Melissa\Block\Widget\Announcement" id="melissa_widget_announcement">
+        <label>Announcements Image</label>
+        <description>Image</description>
+        <parameters>
+            <parameter name="text_image" sort_order="10" visible="true" xsi:type="text">
+                <label>Text Image</label>
+            </parameter>
+            <parameter name="widget_image_left" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Left Image</label>
+                <description translate="true">Choose a image to display in left Announcement section</description>
+                <block class="SM\Melissa\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="widget_image_center" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Center Image</label>
+                <description translate="true">Choose a image to display in center Announcement section</description>
+                <block class="SM\Melissa\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="widget_image_right" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Right Image</label>
+                <description translate="true">Choose a image to display in right Announcement section</description>
+                <block class="SM\Melissa\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="my_new_custom_widget" class="SM\Melissa\Block\Widget\Samplewidget">
+        <label translate="true">Banner widget</label>
+        <description translate="true">Banner widget</description>
+        <parameters>
+            <parameter name="widgetimage" xsi:type="block" required="true" visible="true" sort_order="10">
+                <label translate="true">Background image</label>
+                <block class="SM\Melissa\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

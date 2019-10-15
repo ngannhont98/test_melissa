@@ -1,0 +1,115 @@
+@menu__font-color: #666;
+@menu__transition: all 0.1s ease-out;
+& when (@media-common = true) {
+  .footer {
+    &.content {
+      .menu {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-wrap(wrap);
+        box-sizing: border-box;
+        float: left;
+        width: 100%;
+        margin-left: 0px;
+
+        color: @menu__font-color;
+
+        padding: 0px;
+
+        &__column {
+          display: block;
+          width: 33%;
+        }
+
+        h4 {
+          margin: 0;
+          padding-bottom: 5px;
+
+          font-size: 22px;
+          font-weight: bold;
+          line-height: 1.2;
+        }
+
+        ul {
+          margin: 0;
+          padding: 20px 0;
+        }
+
+        li {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        a {
+          padding: 3px 0 3px 10px;
+
+          color: @menu__font-color;
+          .lib-css(transition, @menu__transition);
+
+          &:hover {
+            padding-left: 10px;
+
+            color: @color-blue1;
+            text-decoration: none;
+          }
+        }
+
+        img {
+            width: 300px;
+            height: 70px;
+        }
+      }
+      .bottom-footer-box{
+        width: 100%;
+        display: flex;
+
+        .bottom-footer-link{
+          border-right: 1px solid;
+          line-height: 15px;
+          padding-left: 3px;
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .footer {
+    &.content {
+      .menu {
+        width: 100%;
+        padding: 0;
+
+        &__column {
+          display: block;
+          width: 33%;
+        }
+      }
+      .bottom-footer-box{
+        width: 100%;
+        display: flex;
+
+        .bottom-footer-link{
+          border-right: 1px solid;
+          line-height: 15px;
+          padding-left: 3px;
+          padding-right: 3px;
+        }
+      }
+    }
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  .footer {
+    &.content {
+      .menu {
+        ul {
+          &:not(:last-child) {
+            padding-bottom: 30px;
+          }
+        }
+      }
+    }
+  }
+}
